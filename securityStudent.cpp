@@ -28,7 +28,7 @@ std::string SecurityStudent::getDegreeProgram()
 
 void SecurityStudent::print()
 {
-    std::cout   << this->getStudentId() << "    "
+    std::cout << getStudentId() << "    "
     << "First Name: " << this->getFirstName() << "    "
     << "Last Name: " << this->getLastName() << "    "
     << "Age: " << this->getAge() << "    "

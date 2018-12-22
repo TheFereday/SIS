@@ -7,17 +7,10 @@
 
 class Roster {
 private:
-    Student* classRosterArray[5];
     int arrayPosition;
-//    std::string studentId;
-//    std::string firstName;
-//    std::string lastName;
-//    std::string emailAddress;
-//    int age;
-//    int daysInCourse[3];
-//    std::string degreeType;
-    
 public:
+    Student* classRosterArray[5];
+    
     //Constructor
     Roster();
     

@@ -195,32 +195,44 @@ int main()
         int daysInCourse3 = stoi(parsedData[i][7]);
         string degreeType = parsedData[i][8];
         
+        //cout << studentId << firstName << lastName << emailAddress << age << daysInCourse1 << daysInCourse2 << daysInCourse3 << degreeType << endl;
+        
         classRoster->add(studentId, firstName, lastName, emailAddress, age,
                          daysInCourse1, daysInCourse2, daysInCourse3, degreeType);
     }
     
+    Introductions();
     
     // TESTS //
-//    cout << "Print class roster" << endl;
-//    cout << classRoster->classRosterArray.printAll() << endl;
-//    cout << "Print invalid emails" << endl;
-//    cout << classRoster->printInvalidEmails() << endl;
-//    //loop through classRosterArray and for each element:
+    cout << "Print class roster" << endl;
+    classRoster->printAll();
+    
+    // prints out emails that are not xxx@xxx.xxx
+    cout << "Print invalid emails" << endl;
+    classRoster->printInvalidEmails();
+    
+    //loop through classRosterArray and for each element:
+    cout << "TODO: Printing average days in course." << endl;
+//    for(int i = 0; i < NUMSTUDENTS; i++)
+//        classRoster->printDaysInCourse(classRosterArray[i]->getStudentId()) << endl;
+    
+    //TODO this function currently has string parameters, how do we use enum?
 //    cout << "Print class roster /n" << endl;
-//    cout << classRoster->printAverageDaysInCourse(/*current_object's student id*/) << endl;
-//    cout << "Print class roster /n" << endl;
-//    cout << classRoster->printByDegreeProgram(SOFTWARE) << endl;
-//    cout << "Print class roster /n" << endl;
-//    cout << classRoster->remove("A3") << endl;
-//    cout << "Print class roster /n" << endl;
-//    cout << classRoster->remove("A3") << endl;
+//    classRoster->printDegreeProgram(SOFTWARE);
+    
+    cout << "Removing student with Id A3" << endl;
+    classRoster->remove("A3");
+    cout << "Removing student with Id A3, this should output an error." << endl;
+    classRoster->remove("A3");
+    classRoster->~Roster();
     
     return 0;
 }
 
 void Introductions()
 {
-    std::cout << "SCRIPTING AND PROGRAMMING APPLICATIONS — C867" << std::endl;
-    std::cout << "Programming language: C++" << std::endl;
-    //std::cout << student ID & name;
+    cout << "SCRIPTING AND PROGRAMMING APPLICATIONS — C867" << endl;
+    cout << "Programming language: C++11" << endl;
+    cout << "Theron Fereday, ID: 699550" << endl;
+    cout << endl << endl;
 }
