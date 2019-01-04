@@ -18,18 +18,35 @@ Student::Student(std::string studentId,
                  std::string lastName,
                  std::string emailAddress,
                  int age,
-                 int* numberOfDays[3],
-                 std::string degreeType){};
+                 int numberOfDays[3],
+                 Degree degreeType)
+{
+    studentId = this->studentId;
+    firstName = this->firstName;
+    lastName = this->lastName;
+    emailAddress = this->emailAddress;
+    age = this->age;
+    numberOfDays = this->numberOfDays;
+    degreeType = this->degreeType;
+};
 
 //(studentId, firstName, lastName, emailAddress, age, numberOfDays, degreeType)
 
-Student::Student(std::string studentId,
-                 std::string firstName,
-                 std::string lastName,
-                 std::string emailAddress,
-                 int age,
-                 int *numberOfDays,
-                 std::string degreeType){};
+//Student::Student(std::string studentId,
+//                 std::string firstName,
+//                 std::string lastName,
+//                 std::string emailAddress,
+//                 int age,
+//                 int* numberOfDays,
+//                 std::string degreeType)
+//{
+////    studentId = this->studentId;
+////    firstName = this->firstName;
+////    lastName = this->lastName;
+////    emailAddress = this->emailAddress;
+////    age = this->age;
+////    numberOfDays = this->numberOfDays;
+//};
 
 // Destructor
 Student::~Student(){};
@@ -63,6 +80,8 @@ int Student::getAge()
 // getNumberOfDays returns average number of days for the courses
 int* Student::getNumberOfDays()
 {
+    
+    
     return numberOfDays;
 }
 
@@ -97,8 +116,7 @@ void Student::setNumberOfDays(int numberOfDays)
     numberOfDays = numberOfDays;
 }
 
-void Student::setDegreeType(std::string degreeType)
+void Student::setDegreeType(Degree degreeType)
 {
     degreeType = degreeType;
 }
-

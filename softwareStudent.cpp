@@ -11,9 +11,17 @@
 #include "roster.h"
 
 // constructor
-SoftwareStudent::SoftwareStudent (std::string studentId, std::string firstName, std::string lastName, std::string emailAddress, int age, int *numberOfDays, std::string degreeType)
+SoftwareStudent::SoftwareStudent (std::string studentId, std::string firstName, std::string lastName, std::string emailAddress, int age, int *numberOfDays, Degree degreeType)
 : Student (studentId, firstName, lastName, emailAddress, age, numberOfDays, degreeType)
 {
+    this->setStudentId(studentId);
+    this->setFirstName(firstName);
+    this->setLastName(lastName);
+    this->setEmailAddress(emailAddress);
+    this->setAge(age);
+    this->numberOfDays[0] = numberOfDays[0];
+    this->numberOfDays[1] = numberOfDays[1];
+    this->numberOfDays[2] = numberOfDays[2];
     this->setDegreeType(degreeType);
 }
 
@@ -21,7 +29,7 @@ SoftwareStudent::SoftwareStudent (std::string studentId, std::string firstName, 
 SoftwareStudent::~SoftwareStudent() { }
 
 // getters
-std::string SoftwareStudent::getDegreeProgram()
+Degree SoftwareStudent::getDegreeProgram()
 {
     return this->degreeType;
 }
@@ -32,6 +40,8 @@ void SoftwareStudent::print()
     << "First Name: " << this->getFirstName() << "    "
     << "Last Name: " << this->getLastName() << "    "
     << "Age: " << this->getAge() << "    "
-    << "daysInCourse: " << this->getNumberOfDays() << "    "
-    << "Degree Program: " << this->getDegreeProgram() << std::endl;
+    
+    << "daysInCourse: { " << this->numberOfDays[0] << ", " << this->numberOfDays[1] << ", " << this->numberOfDays[2] << " }"
+    
+    << "    " << "Degree Program: " << this->getDegreeProgram() << std::endl;
 }

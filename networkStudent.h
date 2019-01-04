@@ -7,7 +7,7 @@
 class NetworkStudent : public Student
 {
     private:
-    std::string degreeType;
+    Degree degreeType;
     
     public:
         // Default constructor
@@ -15,12 +15,12 @@ class NetworkStudent : public Student
     
         // Constructor receiving all class variables
         NetworkStudent(std::string studentId, std::string firstName, std::string lastName,
-                       std::string emailAddress, int age, int *numberOfDays, std::string degreeType);
+                       std::string emailAddress, int age, int *numberOfDays, Degree degreeType);
     
         // Destructor
         ~NetworkStudent();
     
-        std::string getDegreeProgram();
+        Degree getDegreeProgram();
         void print();
 
 };

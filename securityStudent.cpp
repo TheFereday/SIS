@@ -11,9 +11,17 @@
 #include "roster.h"
 
 // constructor
-SecurityStudent::SecurityStudent(std::string studentId, std::string firstName, std::string lastName, std::string emailAddress, int age, int *numberOfDays, std::string degreeType)
+SecurityStudent::SecurityStudent(std::string studentId, std::string firstName, std::string lastName, std::string emailAddress, int age, int* numberOfDays, Degree degreeType)
 : Student (studentId, firstName, lastName, emailAddress, age, numberOfDays, degreeType)
 {
+    this->setStudentId(studentId);
+    this->setFirstName(firstName);
+    this->setLastName(lastName);
+    this->setEmailAddress(emailAddress);
+    this->setAge(age);
+    this->numberOfDays[0] = numberOfDays[0];
+    this->numberOfDays[1] = numberOfDays[1];
+    this->numberOfDays[2] = numberOfDays[2];
     this->setDegreeType(degreeType);
 }
 
@@ -21,17 +29,19 @@ SecurityStudent::SecurityStudent(std::string studentId, std::string firstName, s
 SecurityStudent::~SecurityStudent() { }
 
 // getters
-std::string SecurityStudent::getDegreeProgram()
+Degree SecurityStudent::getDegreeProgram()
 {
     return this->degreeType;
 }
 
 void SecurityStudent::print()
 {
-    std::cout << getStudentId() << "    "
+    std::cout   << this->getStudentId() << "    "
     << "First Name: " << this->getFirstName() << "    "
     << "Last Name: " << this->getLastName() << "    "
     << "Age: " << this->getAge() << "    "
-    << "daysInCourse: " << this->getNumberOfDays() << "    "
-    << "Degree Program: " << this->getDegreeProgram() << std::endl;
+    
+    << "daysInCourse: { " << this->numberOfDays[0] << ", " << this->numberOfDays[1] << ", " << this->numberOfDays[2] << " }"
+    
+    << "    " << "Degree Program: " << this->getDegreeProgram() << std::endl;
 }

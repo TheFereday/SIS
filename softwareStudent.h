@@ -7,15 +7,15 @@
 class SoftwareStudent : public Student
 {
 private:
-    std::string degreeType;
+    Degree degreeType;
     
 public:
     SoftwareStudent();
     SoftwareStudent(std::string studentId, std::string firstName, std::string lastName,
-                    std::string emailAddress, int age, int *numberOfDays, std::string degreeType);
+                    std::string emailAddress, int age, int *numberOfDays, Degree degreeType);
     ~SoftwareStudent();
     
-    std::string getDegreeProgram();
+    Degree getDegreeProgram();
     void print();
     
 };

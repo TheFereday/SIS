@@ -12,16 +12,24 @@
 using namespace std;
 
 // constructor
-NetworkStudent::NetworkStudent(string studentId, string firstName, string lastName, string emailAddress, int age, int *numberOfDays, string degreeType)
+NetworkStudent::NetworkStudent(string studentId, string firstName, string lastName, string emailAddress, int age, int *numberOfDays, Degree degreeType)
 : Student (studentId, firstName, lastName, emailAddress, age, numberOfDays, degreeType)
 {
+    this->setStudentId(studentId);
+    this->setFirstName(firstName);
+    this->setLastName(lastName);
+    this->setEmailAddress(emailAddress);
+    this->setAge(age);
+    this->numberOfDays[0] = numberOfDays[0];
+    this->numberOfDays[1] = numberOfDays[1];
+    this->numberOfDays[2] = numberOfDays[2];
     this->setDegreeType(degreeType);
 }
 
 
 NetworkStudent::~NetworkStudent() {}
 
-string NetworkStudent::getDegreeProgram()
+Degree NetworkStudent::getDegreeProgram()
 {
     return this->degreeType;
 }
@@ -32,6 +40,8 @@ void NetworkStudent::print()
     << "First Name: " << this->getFirstName() << "    "
     << "Last Name: " << this->getLastName() << "    "
     << "Age: " << this->getAge() << "    "
-    << "daysInCourse: " << this->getNumberOfDays() << "    "
-    << "Degree Program: " << this->getDegreeProgram() << std::endl;
+    
+    << "daysInCourse: { " << this->numberOfDays[0] << ", " << this->numberOfDays[1] << ", " << this->numberOfDays[2] << " }"
+    
+    << "    " << "Degree Program: " << (Degree)this->getDegreeProgram() << std::endl;
 }

@@ -7,15 +7,15 @@
 class SecurityStudent : public Student
 {
 private:
-    std::string degreeType;
+    Degree degreeType;
     
 public:
     SecurityStudent();
     SecurityStudent(std::string studentId, std::string firstName, std::string lastName,
-                   std::string emailAddress, int age, int *numberOfDays, std::string degreeType);
+                   std::string emailAddress, int age, int *numberOfDays, Degree degreeType);
     ~SecurityStudent();
     
-    std::string getDegreeProgram();
+    Degree getDegreeProgram();
     void print();
     
 };

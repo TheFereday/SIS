@@ -15,34 +15,33 @@
 
 class Student
 {
-private:
+public:
     std::string studentId;
     std::string firstName;
     std::string lastName;
     std::string emailAddress;
     int age;
     int numberOfDays[3];
-    std::string degreeType;
+    Degree degreeType;
     
-public:
     // Constructors
     Student(std::string studentId,
             std::string firstName,
             std::string lastName,
             std::string emailAddress,
             int age,
-            int* numberOfDays[3],
-            std::string degreeType);
+            int numberOfDays[3],
+            Degree degreeType);
     
     //(studentId, firstName, lastName, emailAddress, age, numberOfDays, degreeType)
     
-    Student(std::string studentId,
-             std::string firstName,
-             std::string lastName,
-             std::string emailAddress,
-             int age,
-             int *numberOfDays,
-             std::string degreeType);
+//    Student(std::string studentId,
+//             std::string firstName,
+//             std::string lastName,
+//             std::string emailAddress,
+//             int age,
+//             int* numberOfDays,
+//             std::string degreeType);
     // Destructor
     ~Student();
     // accessor functions
@@ -52,7 +51,7 @@ public:
     std::string getEmailAddress();
     int getAge();
     int* getNumberOfDays();
-    virtual std::string getDegreeProgram() = 0;
+    virtual Degree getDegreeProgram() = 0;
     
     // mutator functions
     void setStudentId(std::string Id);
@@ -61,10 +60,10 @@ public:
     void setEmailAddress(std::string emailAddr);
     void setAge(int newAge);
     void setNumberOfDays(int days);
-    void setDegreeType(std::string degreeType);
+    void setDegreeType(Degree degreeType);
     
     // other functions
-    virtual void print();
+    virtual void print(){};
 };
 
 

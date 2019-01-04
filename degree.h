@@ -7,8 +7,8 @@
 //
 //  degree contains the enums for the degree specific subclasses
 
-#ifndef degree_h
-#define degree_h
+#ifndef DEGREE_H
+#define DEGREE_H
 
 enum Degree { GENERIC, NETWORK, SECURITY, SOFTWARE };
 
