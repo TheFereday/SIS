@@ -23,15 +23,15 @@ NetworkStudent::NetworkStudent(string studentId, string firstName, string lastNa
     this->numberOfDays[0] = numberOfDays[0];
     this->numberOfDays[1] = numberOfDays[1];
     this->numberOfDays[2] = numberOfDays[2];
-    this->setDegreeType(degreeType);
+    this->degreeType = NETWORK;
 }
 
 
 NetworkStudent::~NetworkStudent() {}
 
-Degree NetworkStudent::getDegreeProgram()
+std::string NetworkStudent::getDegreeProgram()
 {
-    return this->degreeType;
+    return "NETWORK";
 }
 
 void NetworkStudent::print()
@@ -43,5 +43,5 @@ void NetworkStudent::print()
     
     << "daysInCourse: { " << this->numberOfDays[0] << ", " << this->numberOfDays[1] << ", " << this->numberOfDays[2] << " }"
     
-    << "    " << "Degree Program: " << (Degree)this->getDegreeProgram() << std::endl;
+    << "    " << "Degree Program: " << this->getDegreeProgram() << std::endl;
 }

@@ -51,7 +51,7 @@ public:
     std::string getEmailAddress();
     int getAge();
     int* getNumberOfDays();
-    virtual Degree getDegreeProgram() = 0;
+    virtual std::string getDegreeProgram() = 0;
     
     // mutator functions
     void setStudentId(std::string Id);
@@ -60,7 +60,6 @@ public:
     void setEmailAddress(std::string emailAddr);
     void setAge(int newAge);
     void setNumberOfDays(int days);
-    void setDegreeType(Degree degreeType);
     
     // other functions
     virtual void print(){};

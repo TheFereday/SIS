@@ -27,7 +27,6 @@ Student::Student(std::string studentId,
     emailAddress = this->emailAddress;
     age = this->age;
     numberOfDays = this->numberOfDays;
-    degreeType = this->degreeType;
 };
 
 //(studentId, firstName, lastName, emailAddress, age, numberOfDays, degreeType)
@@ -116,7 +115,3 @@ void Student::setNumberOfDays(int numberOfDays)
     numberOfDays = numberOfDays;
 }
 
-void Student::setDegreeType(Degree degreeType)
-{
-    degreeType = degreeType;
-}

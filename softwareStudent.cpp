@@ -22,21 +22,21 @@ SoftwareStudent::SoftwareStudent (std::string studentId, std::string firstName, 
     this->numberOfDays[0] = numberOfDays[0];
     this->numberOfDays[1] = numberOfDays[1];
     this->numberOfDays[2] = numberOfDays[2];
-    this->setDegreeType(degreeType);
+    this->degreeType = SOFTWARE;
 }
 
 // destructor
 SoftwareStudent::~SoftwareStudent() { }
 
 // getters
-Degree SoftwareStudent::getDegreeProgram()
+std::string SoftwareStudent::getDegreeProgram()
 {
-    return this->degreeType;
+    return "SOFTWARE";
 }
 
 void SoftwareStudent::print()
 {
-    std::cout   << this->getStudentId() << "    "
+    std::cout << this->getStudentId() << "    "
     << "First Name: " << this->getFirstName() << "    "
     << "Last Name: " << this->getLastName() << "    "
     << "Age: " << this->getAge() << "    "

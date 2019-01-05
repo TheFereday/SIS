@@ -15,7 +15,7 @@ using std::cout;
 using std::endl;
 using std::stoi;
 
-//Global variables
+//Global variable for array size
 int NUMSTUDENTS = 5;
 
 //Constructor
@@ -27,36 +27,26 @@ Roster::Roster()
 //Destructor
 Roster::~Roster(){};
 
-//   public void add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, <degree program>) that sets the instance variables from part D1 and updates the roster
+//Add function creates an array of days in courses and passes into the constructor for subclasses based on degreeType
 
 void Roster::add(string studentId, string firstName, string lastName, string emailAddress,
             int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, string degreeType)
 {
-    // TODO: Generate new students of below types by creating array out of days and passing that array into the constructor.  Also, grab the firstname to name the object.
-    
     Degree degType = (Degree)0;
     int daysInCourse[3] = {daysInCourse1, daysInCourse2, daysInCourse3};
     
-    //cout << "Inside add: " << degType << "  " << degreeType <<endl;
-    
     if(degreeType.compare("NETWORK") == 0)
     {
-        degType = (Degree)1;
-        //cout << "Inside NETWORK if: " << degType << endl;
         classRosterArray[arrayPosition] = new NetworkStudent(studentId, firstName, lastName, emailAddress, age, daysInCourse, degType);
     }
 
     if(degreeType.compare("SECURITY") == 0)
     {
-        degType = (Degree)2;
-        //cout << "Inside SECURITY if: " << degType << endl;
         classRosterArray[arrayPosition] = new SecurityStudent(studentId, firstName, lastName, emailAddress, age, daysInCourse, degType);
     }
 
     if(degreeType.compare("SOFTWARE") == 0)
     {
-        degType = (Degree)3;
-        //cout << "Inside SOFTWARE if: " << degType << endl;
         classRosterArray[arrayPosition] = new SoftwareStudent(studentId, firstName, lastName, emailAddress, age, daysInCourse, degType);
     }
 
@@ -80,7 +70,6 @@ void Roster::remove(string studentId)
                 classRosterArray[i+count] = classRosterArray[i+count+1];
                 count++;
             }
-            //TODO decrease size of array
         }
     }
     
@@ -102,7 +91,6 @@ void Roster::printAll()
 
 //public void printDaysInCourse(string studentID) that correctly prints a student’s average number of days in the three courses. The student is identified by the studentID parameter.
 
-
 void Roster::printDaysInCourse(string studentId)
 {
     for(int i = 0; i < NUMSTUDENTS; i++)
@@ -116,8 +104,8 @@ void Roster::printDaysInCourse(string studentId)
             
             averageDays /= 3;
             
-            cout << "The student with Id " << classRosterArray[i]->getStudentId()
-            << " Has an average days in 3 courses of " << averageDays << endl;
+            cout << "Student " << classRosterArray[i]->getStudentId()
+            << " averages " << averageDays << " days." << endl;
         }
     }
 }
@@ -137,13 +125,13 @@ void Roster::printInvalidEmails()
         size_t space = emailToCheck.find(' ');
         
         if(space != string::npos)
-            cout << emailToCheck << " has a space." << endl;
+            cout << "   " << emailToCheck << " has a space." << endl;
         
         else if (at == string::npos)
-            cout << emailToCheck << " is missing @ sign." << endl;
+            cout << "   " << emailToCheck << " is missing @ sign." << endl;
         
         else if (dot == string::npos)
-            cout << emailToCheck <<  " is missing . after the @." << endl;
+            cout << "   " << emailToCheck <<  " is missing . after the @." << endl;
         
         else
             continue;
@@ -152,23 +140,33 @@ void Roster::printInvalidEmails()
 }
 
 // that prints out student information for a degree program specified by an enumerated type
-void Roster::printDegreeProgram(std::string degreeProgram)
+void Roster::printDegreeProgram(int degreeProgram)
 {
+    std::string intToString;
+    
+    switch(degreeProgram)
+    {
+        case 0: intToString = "NETWORK";
+            break;
+        case 1: intToString = "SECURITY";
+            break;
+        case 2: intToString = "SOFTWARE";
+            break;
+    }
+    
     for(int i = 0; i < NUMSTUDENTS; i++)
     {
-//        if(classRosterArray[i]->getDegreeProgram().compare(degreeProgram) == 0)
-//            classRosterArray[i]->print();
+        if(classRosterArray[i]->getDegreeProgram().compare(intToString) == 0)
+            classRosterArray[i]->print();
     }
+    cout << endl;
 }
 
 /*  FUNCTIONS   */
 void Introductions();
 
 int main()
-{
-    // assigning value to string s
-    //const string s = "A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY";
-    
+{   
     const string studentData[] =
     {
         "A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",
@@ -239,7 +237,7 @@ int main()
     cout << "The following students have invalid emails" << endl;
     classRoster->printInvalidEmails();
     
-    //loop through classRosterArray and for each element:
+    //loop through classRosterArray and for each element print average of course days
     for(int i = 0; i < NUMSTUDENTS; i++)
     {
         classRoster->printDaysInCourse(classRoster->classRosterArray[i]->getStudentId());
@@ -247,8 +245,8 @@ int main()
     
     cout << endl;
     
-    //TODO this function currently has string parameters, how do we use enum?
-//    classRoster->printDegreeProgram(SOFTWARE);
+    cout << "Printing students in the software degree program" << endl;
+    classRoster->printDegreeProgram(SOFTWARE);
     
     cout << "Removing student with Id A3\n" << endl;
     classRoster->remove("A3");
@@ -258,6 +256,8 @@ int main()
     
     cout << "Removing student with Id A3, this should output an error." << endl;
     classRoster->remove("A3");
+    cout << endl;
+    
     classRoster->~Roster();
     
     return 0;

@@ -30,7 +30,7 @@ public:
     void printAll();
     void printDaysInCourse(std::string studentId);
     void printInvalidEmails();
-    void printDegreeProgram(std::string degreeProgram);
+    void printDegreeProgram(int degreeProgram);
 };
 
 #endif

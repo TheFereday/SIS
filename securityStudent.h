@@ -15,7 +15,7 @@ public:
                    std::string emailAddress, int age, int *numberOfDays, Degree degreeType);
     ~SecurityStudent();
     
-    Degree getDegreeProgram();
+    std::string getDegreeProgram();
     void print();
     
 };

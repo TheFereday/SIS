@@ -22,16 +22,16 @@ SecurityStudent::SecurityStudent(std::string studentId, std::string firstName, s
     this->numberOfDays[0] = numberOfDays[0];
     this->numberOfDays[1] = numberOfDays[1];
     this->numberOfDays[2] = numberOfDays[2];
-    this->setDegreeType(degreeType);
+    this->degreeType = SECURITY;
 }
 
 // destructor
 SecurityStudent::~SecurityStudent() { }
 
 // getters
-Degree SecurityStudent::getDegreeProgram()
+std::string SecurityStudent::getDegreeProgram()
 {
-    return this->degreeType;
+    return "SECURITY";
 }
 
 void SecurityStudent::print()

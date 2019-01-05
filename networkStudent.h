@@ -20,7 +20,7 @@ class NetworkStudent : public Student
         // Destructor
         ~NetworkStudent();
     
-        Degree getDegreeProgram();
+        std::string getDegreeProgram();
         void print();
 
 };

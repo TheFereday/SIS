@@ -10,6 +10,6 @@
 #ifndef DEGREE_H
 #define DEGREE_H
 
-enum Degree { GENERIC, NETWORK, SECURITY, SOFTWARE };
+enum Degree { NETWORK, SECURITY, SOFTWARE };
 
 #endif
